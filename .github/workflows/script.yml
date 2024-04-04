@@ -1,0 +1,60 @@
+name: ci-cd
+on: 
+  push:
+    branches:
+      - master
+    tags:
+      - "*"
+env:
+  GO_VERSION: 1.21.0
+  
+jobs:
+  test:
+    name: Unit and Coverage Test
+    runs-on: ubuntu-latest
+    steps:
+    - name: set up go ${{env.GO_VERSION}}
+      uses: actions/setup-go@v3
+      with:
+        go-version: ${{env.GO_VERSION}}
+    - name: Check out code into the Go module directory
+      uses: actions/checkout@v3
+    - name: Run Test and Build App
+      run: |
+        go test -v ./...
+        go test -coverprofile=coverage.out ./...
+        go tool cover -html=coverage.out -o coverage.html
+    - name: Add coverage.out to artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: coverage-zip
+        path: |
+          ./coverage.out
+          ./coverage.html
+    - name: Release Go App
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: main.go
+
+  deploy:
+    name: Deploy to Docker Registry
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+      - name: Setup Docker Build
+        uses: docker/setup-buildx-action@v2
+      - name: Build and Push to Docker Hub
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/backend-ku:${{ github.ref_name }}
+      

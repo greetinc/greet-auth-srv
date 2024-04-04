@@ -1,0 +1,98 @@
+definitions:
+  dto.AuthUnverifiedResponse:
+    properties:
+      email:
+        type: string
+      otp:
+        type: string
+      token_verified:
+        type: string
+    type: object
+  dto.LoginResponse:
+    properties:
+      email:
+        type: string
+      full_name:
+        type: string
+      id:
+        type: string
+      profile_id:
+        type: string
+      token:
+        type: string
+      token_verified:
+        type: string
+      verifiedResp:
+        $ref: '#/definitions/dto.AuthUnverifiedResponse'
+    type: object
+  dto.SigninRequest:
+    properties:
+      email:
+        type: string
+      otp:
+        type: string
+      password:
+        type: string
+      whatsapp:
+        type: string
+    required:
+    - email
+    - otp
+    - password
+    - whatsapp
+    type: object
+  response.ResponseModel:
+    properties:
+      data: {}
+      message:
+        type: string
+      status:
+        type: boolean
+    type: object
+  response.errorResponse:
+    properties:
+      error:
+        type: string
+      meta:
+        $ref: '#/definitions/response.ResponseModel'
+    type: object
+info:
+  contact: {}
+paths:
+  /api/auth/login:
+    post:
+      consumes:
+      - application/json
+      description: Login user
+      parameters:
+      - description: request body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.SigninRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.LoginResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+      security:
+      - BearerAuth: []
+      summary: Login user
+      tags:
+      - auth
+swagger: "2.0"
