@@ -8,6 +8,8 @@ import (
 
 type DomainHandler interface {
 	Signin(c echo.Context) error //masuk
+	Signup(c echo.Context) error //masuk
+	SignupDetail(c echo.Context) error
 }
 
 type domainHandler struct {

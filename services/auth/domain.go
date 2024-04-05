@@ -9,6 +9,8 @@ import (
 type AuthService interface {
 	Signin(req dto.SigninRequest) (*dto.LoginResponse, error)
 	SigninByPhoneNumber(req dto.SigninRequest) (*dto.LoginResponse, error)
+	Signup(req dto.AuthRegisterRequest) (dto.AuthRegisterResponse, error)
+	SignupDetail(req dto.RegisterDetailRequest) (dto.RegisterDetailResponse, error)
 }
 
 type authService struct {

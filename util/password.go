@@ -1,6 +1,8 @@
 package util
 
 import (
+	dto "greet-auth-srv/dto/auth"
+
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -12,22 +14,22 @@ func VerifyPassword(hashedPassword, password string) error {
 	return bcrypt.CompareHashAndPassword([]byte(hashedPassword), []byte(password))
 }
 
-// func EncryptPassword(req *dto.AuthRegisterRequest) (err error) {
-// 	hashedPassword, err := GenerateFromPassword(req.Password)
+func EncryptPassword(req *dto.AuthRegisterRequest) (err error) {
+	hashedPassword, err := GenerateFromPassword(req.Password)
 
-// 	if err != nil {
-// 		return err
-// 	}
-// 	req.Password = string(hashedPassword)
-// 	return nil
-// }
+	if err != nil {
+		return err
+	}
+	req.Password = string(hashedPassword)
+	return nil
+}
 
-// func EncryptPasswordAfterReset(req *dto.Reset) (err error) {
-// 	hashedPassword, err := GenerateFromPassword(req.NewPassword)
+func EncryptPasswordAfterReset(req *dto.Reset) (err error) {
+	hashedPassword, err := GenerateFromPassword(req.NewPassword)
 
-// 	if err != nil {
-// 		return err
-// 	}
-// 	req.NewPassword = string(hashedPassword)
-// 	return nil
-// }
+	if err != nil {
+		return err
+	}
+	req.NewPassword = string(hashedPassword)
+	return nil
+}

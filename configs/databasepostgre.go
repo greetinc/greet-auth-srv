@@ -60,6 +60,7 @@ func InitDB() *gorm.DB {
 		&entity.UserVerified{},
 		&entity.File{},
 		&entity.ProfilePicture{},
+		&entity.InterestAge{},
 	)
 
 	return db

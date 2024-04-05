@@ -4,12 +4,18 @@ import (
 	"greet-auth-srv/configs"
 	"greet-auth-srv/docs"
 	h_auth "greet-auth-srv/handlers/auth"
+	h_verifyReset "greet-auth-srv/handlers/auth/reset_password"
+	h_verify "greet-auth-srv/handlers/auth/verify_account"
 	"net/http"
 
 	"greet-auth-srv/middlewares"
 	r_auth "greet-auth-srv/repositories/auth"
+	r_verifyReset "greet-auth-srv/repositories/auth/reset_password"
+	r_verify "greet-auth-srv/repositories/auth/verify_account"
 
 	s_auth "greet-auth-srv/services/auth"
+	s_verifyReset "greet-auth-srv/services/auth/reset_password"
+	s_verify "greet-auth-srv/services/auth/verify_account"
 
 	"os"
 
@@ -25,11 +31,28 @@ var (
 	authR = r_auth.NewAuthRepository(DB)
 	authS = s_auth.NewAuthService(authR, JWT)
 	authH = h_auth.NewAuthHandler(authS)
+
+	verifyR = r_verify.NewVerifyRepository(DB)
+	verifyS = s_verify.NewVerifyService(verifyR, JWT)
+	verifyH = h_verify.NewVerifyHandler(verifyS)
+
+	resetR = r_verifyReset.NewResetRepository(DB)
+	resetS = s_verifyReset.NewResetService(resetR, JWT)
+	resetH = h_verifyReset.NewResetHandler(resetS)
 )
 
 func New() *echo.Echo {
 
 	e := echo.New()
+
+	e.POST("/verify", verifyH.HandleVerification)
+	e.PUT("/resend-otp", verifyH.ResendVerification)
+
+	//reset password
+	e.POST("/resetpassword", resetH.ResetPassword)
+	e.POST("/verify-reset", resetH.VerifyResetPassword)
+	e.POST("/request-reset-password", resetH.RequestResetPassword)
+	e.PUT("/resend-reset", resetH.ResendVerification)
 
 	middlewares.LoggerMiddleware(e)
 
@@ -42,6 +65,8 @@ func New() *echo.Echo {
 
 	auth := e.Group("api/auth", middlewares.ApiKeyMiddleware)
 	{
+		auth.POST("/register", authH.Signup)
+		auth.POST("/register-detail", authH.SignupDetail)
 		auth.POST("/login", authH.Signin)
 	}
 

@@ -17,6 +17,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/h2non/filetype"
 	"github.com/labstack/echo/v4"
+	"github.com/lib/pq"
 	"golang.org/x/text/currency"
 	"golang.org/x/text/language"
 	"golang.org/x/text/message"
@@ -41,7 +42,7 @@ import (
 // 	clientURL := os.Getenv("CLIENT_URL")
 // 	if clientURL == "" {
 // 		// Provide a default value or handle the missing configuration accordingly
-// 		clientURL = "http://localhost:8080"
+// 		clientURL = "http://localhost:2345"
 // 	}
 // 	return clientURL
 // }
@@ -71,6 +72,12 @@ func IsValidEmail(email string) bool {
 	return err == nil && matched
 }
 
+func IsDuplicateEntryError(err error) bool {
+	if pqErr, ok := err.(*pq.Error); ok {
+		return pqErr.Code.Name() == "unique_violation"
+	}
+	return false
+}
 func Mailtrap(to, otp string) error {
 	mailer := gomail.NewMessage()
 	mailer.SetHeader("From", "aseprayana95@gmail.com")
@@ -80,7 +87,7 @@ func Mailtrap(to, otp string) error {
 	mailer.SetBody("text/html", fmt.Sprintf("Your verification code is: <strong>%s</strong>", otp))
 	//click button at email and verify
 	// mailer.SetBody("text/html", fmt.Sprintf("Hello, this is a test email from "+
-	// "Mailtrap: <a href='http://localhost:8080/verify/%s'>Verify Account</a>Your verification code is: <strong>%s</strong>",
+	// "Mailtrap: <a href='http://localhost:2345/verify/%s'>Verify Account</a>Your verification code is: <strong>%s</strong>",
 	// verificationToken, otp))
 
 	dialer := gomail.NewDialer("smtp.mailtrap.io", 587, "126a08e0c5ff69", "9f8b22657e0257")

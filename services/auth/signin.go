@@ -4,7 +4,6 @@ import (
 	"errors"
 	dto "greet-auth-srv/dto/auth"
 	res "greet-auth-srv/util/response"
-	"math/rand"
 	"strings"
 	"time"
 
@@ -176,17 +175,4 @@ func (u *authService) Signin(req dto.SigninRequest) (*dto.LoginResponse, error) 
 		Token:         token,
 		TokenVerified: user.Verified.Token,
 	}, nil
-}
-
-func GenerateRandomNumeric(length int) string {
-	const chars = "0123456789"
-
-	var result strings.Builder
-	rand.Seed(time.Now().UnixNano())
-
-	for i := 0; i < length; i++ {
-		result.WriteRune(rune(chars[rand.Intn(len(chars))]))
-	}
-
-	return result.String()
 }

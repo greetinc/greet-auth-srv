@@ -18,7 +18,7 @@ func main() {
 	e := routes.New()
 	e.Use(CORSMiddleware())
 
-	e.Logger.Fatal(e.Start(":8080"))
+	e.Logger.Fatal(e.Start(":2345"))
 }
 
 // CORSMiddleware ..

@@ -9,6 +9,8 @@ import (
 )
 
 type DomainRepository interface {
+	Signup(req dto.AuthRegisterRequest) (dto.AuthRegisterResponse, error)
+	SignupDetail(req dto.RegisterDetailRequest) (dto.RegisterDetailResponse, error)
 	Signin(req dto.SigninRequest) (*entity.User, error)
 	SigninByPhoneNumber(req dto.SigninRequest) (*entity.User, error)
 	UpdateTokenVerified(userID string, otp string, token string) (dto.LoginResponse, error)
