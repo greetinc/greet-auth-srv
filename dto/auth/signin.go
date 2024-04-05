@@ -32,3 +32,9 @@ type AuthUnverifiedResponse struct {
 	Otp           string `json:"otp"`
 	TokenVerified string `json:"token_verified"`
 }
+
+type UserRequest struct {
+	ID             string `param:"id" validate:"required"`
+	ProfileID      string `query:"profile_id" validate:"required"`
+	SwitcherAccess string `param:"switcher_access" validate:"required"`
+}
