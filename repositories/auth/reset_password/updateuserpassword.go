@@ -1,7 +1,7 @@
 package repositories
 
 import (
-	"greet-auth-srv/entity"
+	"github.com/greetinc/greet-auth-srv/entity"
 )
 
 func (u *verifyResetRepository) UpdateUserPassword(userID string, newPassword string) error {

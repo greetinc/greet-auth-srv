@@ -1,10 +1,11 @@
 package auth
 
 import (
-	dto "greet-auth-srv/dto/auth"
-	"greet-auth-srv/entity"
-	res "greet-auth-srv/util/response"
 	"time"
+
+	dto "github.com/greetinc/greet-auth-srv/dto/auth"
+	"github.com/greetinc/greet-auth-srv/entity"
+	res "github.com/greetinc/greet-auth-srv/util/response"
 )
 
 func (u *verifyService) VerifyOtpReset(req dto.VerifyResetRequest) (*entity.PasswordResetToken, error) {

@@ -2,12 +2,13 @@ package auth
 
 import (
 	"errors"
-	dto "greet-auth-srv/dto/auth"
-	res "greet-auth-srv/util/response"
 	"strings"
 	"time"
 
-	"greet-auth-srv/util"
+	dto "github.com/greetinc/greet-auth-srv/dto/auth"
+	res "github.com/greetinc/greet-auth-srv/util/response"
+
+	"github.com/greetinc/greet-auth-srv/util"
 
 	"gorm.io/gorm"
 )

@@ -1,4 +1,4 @@
-module greet-auth-srv
+module github.com/greetinc/greet-auth-srv
 
 go 1.21
 

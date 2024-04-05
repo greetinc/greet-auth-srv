@@ -1,7 +1,7 @@
 package util
 
 import (
-	dto "greet-auth-srv/dto/auth"
+	dto "github.com/greetinc/greet-auth-srv/dto/auth"
 
 	"golang.org/x/crypto/bcrypt"
 )

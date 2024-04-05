@@ -1,9 +1,10 @@
 package main
 
 import (
-	"greet-auth-srv/configs/seeder"
-	"greet-auth-srv/routes"
 	"os"
+
+	"github.com/greetinc/greet-auth-srv/configs/seeder"
+	"github.com/greetinc/greet-auth-srv/routes"
 
 	"github.com/labstack/echo/v4"
 )

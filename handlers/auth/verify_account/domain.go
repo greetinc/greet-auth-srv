@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	s "greet-auth-srv/services/auth/verify_account"
+	s "github.com/greetinc/greet-auth-srv/services/auth/verify_account"
 
 	"github.com/labstack/echo/v4"
 )

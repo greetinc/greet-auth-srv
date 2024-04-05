@@ -1,10 +1,11 @@
 package repositories
 
 import (
-	dto "greet-auth-srv/dto/auth"
-	"greet-auth-srv/entity"
-	"greet-auth-srv/util"
 	"time"
+
+	dto "github.com/greetinc/greet-auth-srv/dto/auth"
+	"github.com/greetinc/greet-auth-srv/entity"
+	"github.com/greetinc/greet-auth-srv/util"
 )
 
 func (u *authRepository) SigninByPhoneNumber(req dto.SigninRequest) (*entity.User, error) {

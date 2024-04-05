@@ -2,12 +2,13 @@ package auth
 
 import (
 	"fmt"
-	dto "greet-auth-srv/dto/auth"
 	"math/rand"
 	"strings"
 	"time"
 
-	"greet-auth-srv/util"
+	dto "github.com/greetinc/greet-auth-srv/dto/auth"
+
+	"github.com/greetinc/greet-auth-srv/util"
 )
 
 func (u *authService) SignupDetail(req dto.RegisterDetailRequest) (dto.RegisterDetailResponse, error) {

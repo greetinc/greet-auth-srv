@@ -1,10 +1,11 @@
 package repositories
 
 import (
-	dto "greet-auth-srv/dto/auth"
-	"greet-auth-srv/entity"
 	"sync"
 	"time"
+
+	dto "github.com/greetinc/greet-auth-srv/dto/auth"
+	"github.com/greetinc/greet-auth-srv/entity"
 
 	"gorm.io/gorm"
 )

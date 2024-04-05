@@ -2,8 +2,9 @@ package repositories
 
 import (
 	"fmt"
-	dto "greet-auth-srv/dto/auth"
-	"greet-auth-srv/entity"
+
+	dto "github.com/greetinc/greet-auth-srv/dto/auth"
+	"github.com/greetinc/greet-auth-srv/entity"
 
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"

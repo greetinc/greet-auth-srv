@@ -2,7 +2,8 @@ package repositories
 
 import (
 	"fmt"
-	"greet-auth-srv/entity"
+
+	"github.com/greetinc/greet-auth-srv/entity"
 )
 
 func (u *verifyRepository) UpdateUserVerificationStatus(user *entity.UserVerified) error {

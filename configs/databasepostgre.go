@@ -10,7 +10,7 @@ import (
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 
-	"greet-auth-srv/entity"
+	"github.com/greetinc/greet-auth-srv/entity"
 )
 
 type Config struct {

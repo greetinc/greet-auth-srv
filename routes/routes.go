@@ -1,21 +1,22 @@
 package routes
 
 import (
-	"greet-auth-srv/configs"
-	"greet-auth-srv/docs"
-	h_auth "greet-auth-srv/handlers/auth"
-	h_verifyReset "greet-auth-srv/handlers/auth/reset_password"
-	h_verify "greet-auth-srv/handlers/auth/verify_account"
 	"net/http"
 
-	"greet-auth-srv/middlewares"
-	r_auth "greet-auth-srv/repositories/auth"
-	r_verifyReset "greet-auth-srv/repositories/auth/reset_password"
-	r_verify "greet-auth-srv/repositories/auth/verify_account"
+	"github.com/greetinc/greet-auth-srv/configs"
+	"github.com/greetinc/greet-auth-srv/docs"
+	h_auth "github.com/greetinc/greet-auth-srv/handlers/auth"
+	h_verifyReset "github.com/greetinc/greet-auth-srv/handlers/auth/reset_password"
+	h_verify "github.com/greetinc/greet-auth-srv/handlers/auth/verify_account"
 
-	s_auth "greet-auth-srv/services/auth"
-	s_verifyReset "greet-auth-srv/services/auth/reset_password"
-	s_verify "greet-auth-srv/services/auth/verify_account"
+	"github.com/greetinc/greet-auth-srv/middlewares"
+	r_auth "github.com/greetinc/greet-auth-srv/repositories/auth"
+	r_verifyReset "github.com/greetinc/greet-auth-srv/repositories/auth/reset_password"
+	r_verify "github.com/greetinc/greet-auth-srv/repositories/auth/verify_account"
+
+	s_auth "github.com/greetinc/greet-auth-srv/services/auth"
+	s_verifyReset "github.com/greetinc/greet-auth-srv/services/auth/reset_password"
+	s_verify "github.com/greetinc/greet-auth-srv/services/auth/verify_account"
 
 	"os"
 

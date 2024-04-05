@@ -1,8 +1,9 @@
 package repositories
 
 import (
-	"greet-auth-srv/entity"
 	"time"
+
+	"github.com/greetinc/greet-auth-srv/entity"
 )
 
 func (u *verifyResetRepository) SavePasswordResetToken(userID string, token string, otp string, expiryDuration time.Duration) (*entity.PasswordResetToken, error) {

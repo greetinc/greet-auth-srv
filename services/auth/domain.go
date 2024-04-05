@@ -1,9 +1,9 @@
 package auth
 
 import (
-	dto "greet-auth-srv/dto/auth"
-	m "greet-auth-srv/middlewares"
-	r "greet-auth-srv/repositories/auth"
+	dto "github.com/greetinc/greet-auth-srv/dto/auth"
+	m "github.com/greetinc/greet-auth-srv/middlewares"
+	r "github.com/greetinc/greet-auth-srv/repositories/auth"
 )
 
 type AuthService interface {

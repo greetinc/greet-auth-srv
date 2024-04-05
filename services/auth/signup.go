@@ -2,11 +2,12 @@ package auth
 
 import (
 	"crypto/tls"
-	dto "greet-auth-srv/dto/auth"
-	res "greet-auth-srv/util/response"
 	"strings"
 
-	"greet-auth-srv/util"
+	dto "github.com/greetinc/greet-auth-srv/dto/auth"
+	res "github.com/greetinc/greet-auth-srv/util/response"
+
+	"github.com/greetinc/greet-auth-srv/util"
 
 	"gopkg.in/gomail.v2"
 )

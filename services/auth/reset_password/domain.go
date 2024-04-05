@@ -1,10 +1,10 @@
 package auth
 
 import (
-	dto "greet-auth-srv/dto/auth"
-	"greet-auth-srv/entity"
-	m "greet-auth-srv/middlewares"
-	r "greet-auth-srv/repositories/auth/reset_password"
+	dto "github.com/greetinc/greet-auth-srv/dto/auth"
+	"github.com/greetinc/greet-auth-srv/entity"
+	m "github.com/greetinc/greet-auth-srv/middlewares"
+	r "github.com/greetinc/greet-auth-srv/repositories/auth/reset_password"
 )
 
 type ResetService interface {

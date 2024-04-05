@@ -3,8 +3,9 @@ package repositories
 import (
 	"errors"
 	"fmt"
-	"greet-auth-srv/entity"
 	"time"
+
+	"github.com/greetinc/greet-auth-srv/entity"
 )
 
 func (u *verifyResetRepository) ValidatePasswordResetToken(token string) (string, error) {
