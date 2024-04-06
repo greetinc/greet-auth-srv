@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	dto "github.com/greetinc/greet-auth-srv/dto/auth"
-	"github.com/greetinc/greet-auth-srv/util"
+	util "github.com/greetinc/greet-util/s"
 )
 
 func (s *verifyService) ResetPassword(req dto.Reset) error {

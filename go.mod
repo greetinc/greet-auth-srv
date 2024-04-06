@@ -1,6 +1,6 @@
 module github.com/greetinc/greet-auth-srv
 
-go 1.21
+go 1.21.0
 
 require (
 	github.com/golang-jwt/jwt/v4 v4.5.0
@@ -26,7 +26,10 @@ require (
 	github.com/gabriel-vasile/mimetype v1.4.3 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
+	github.com/greetinc/greet-middlewares v0.0.0-20240406035850-9a0dc3f0c73e // indirect
+	github.com/greetinc/greet-util v0.0.0-20240406004240-ec90800b327e // indirect
 	github.com/leodido/go-urn v1.4.0 // indirect
+	github.com/streadway/amqp v1.1.0 // indirect
 )
 
 require (

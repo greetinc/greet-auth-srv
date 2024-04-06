@@ -2,8 +2,8 @@ package handlers
 
 import (
 	dto "github.com/greetinc/greet-auth-srv/dto/auth"
-	"github.com/greetinc/greet-auth-srv/util"
-	res "github.com/greetinc/greet-auth-srv/util/response"
+	util "github.com/greetinc/greet-util/s"
+	res "github.com/greetinc/greet-util/s/response"
 
 	"github.com/labstack/echo/v4"
 )

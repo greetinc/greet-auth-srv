@@ -7,8 +7,7 @@ import (
 	"time"
 
 	dto "github.com/greetinc/greet-auth-srv/dto/auth"
-
-	"github.com/greetinc/greet-auth-srv/util"
+	util "github.com/greetinc/greet-util/s"
 )
 
 func (u *authService) SignupDetail(req dto.RegisterDetailRequest) (dto.RegisterDetailResponse, error) {

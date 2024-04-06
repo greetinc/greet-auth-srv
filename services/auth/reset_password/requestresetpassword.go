@@ -4,7 +4,7 @@ import (
 	"time"
 
 	dto "github.com/greetinc/greet-auth-srv/dto/auth"
-	"github.com/greetinc/greet-auth-srv/util"
+	util "github.com/greetinc/greet-util/s"
 )
 
 func (s *verifyService) RequestResetPassword(req dto.ResetPasswordRequest) (dto.ResetPasswordResponse, error) {

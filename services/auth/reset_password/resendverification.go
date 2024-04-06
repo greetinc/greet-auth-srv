@@ -9,7 +9,7 @@ import (
 
 	dto "github.com/greetinc/greet-auth-srv/dto/auth"
 	"github.com/greetinc/greet-auth-srv/entity"
-	"github.com/greetinc/greet-auth-srv/util"
+	util "github.com/greetinc/greet-util/s"
 
 	"gopkg.in/gomail.v2"
 )

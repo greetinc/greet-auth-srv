@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	dto "github.com/greetinc/greet-auth-srv/dto/auth"
-	res "github.com/greetinc/greet-auth-srv/util/response"
+	res "github.com/greetinc/greet-util/s/response"
 
 	"github.com/go-playground/validator/v10"
 	"github.com/labstack/echo/v4"

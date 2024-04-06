@@ -4,7 +4,7 @@ import (
 	"strings"
 
 	dto "github.com/greetinc/greet-auth-srv/dto/auth"
-	res "github.com/greetinc/greet-auth-srv/util/response"
+	res "github.com/greetinc/greet-util/s/response"
 
 	"github.com/labstack/echo/v4"
 )

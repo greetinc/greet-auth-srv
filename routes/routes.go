@@ -8,8 +8,8 @@ import (
 	h_auth "github.com/greetinc/greet-auth-srv/handlers/auth"
 	h_verifyReset "github.com/greetinc/greet-auth-srv/handlers/auth/reset_password"
 	h_verify "github.com/greetinc/greet-auth-srv/handlers/auth/verify_account"
+	"github.com/greetinc/greet-middlewares/middlewares"
 
-	"github.com/greetinc/greet-auth-srv/middlewares"
 	r_auth "github.com/greetinc/greet-auth-srv/repositories/auth"
 	r_verifyReset "github.com/greetinc/greet-auth-srv/repositories/auth/reset_password"
 	r_verify "github.com/greetinc/greet-auth-srv/repositories/auth/verify_account"

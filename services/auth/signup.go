@@ -5,9 +5,8 @@ import (
 	"strings"
 
 	dto "github.com/greetinc/greet-auth-srv/dto/auth"
-	res "github.com/greetinc/greet-auth-srv/util/response"
-
-	"github.com/greetinc/greet-auth-srv/util"
+	util "github.com/greetinc/greet-util/s"
+	res "github.com/greetinc/greet-util/s/response"
 
 	"gopkg.in/gomail.v2"
 )
