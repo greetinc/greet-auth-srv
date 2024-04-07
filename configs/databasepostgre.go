@@ -42,7 +42,7 @@ func InitDB() *gorm.DB {
 		log.Fatal(err)
 	}
 
-	sqlDB, err := db.DB()
+	sqlDB, _ := db.DB()
 
 	// SetMaxIdleConns sets the maximum number of connections in the idle connection pool.
 	sqlDB.SetMaxIdleConns(10)
@@ -61,6 +61,7 @@ func InitDB() *gorm.DB {
 		&entity.File{},
 		&entity.ProfilePicture{},
 		&entity.InterestAge{},
+		&entity.RadiusRange{},
 	)
 
 	return db
