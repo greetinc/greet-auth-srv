@@ -62,6 +62,7 @@ func InitDB() *gorm.DB {
 		&entity.ProfilePicture{},
 		&entity.InterestAge{},
 		&entity.RadiusRange{},
+		&entity.Distance{},
 	)
 
 	return db

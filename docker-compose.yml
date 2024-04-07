@@ -31,7 +31,7 @@ services:
     volumes: 
       - db_data:/var/lib/postgresql
     ports:
-      - "5432:5432"
+      - "5431:5432"
     networks:
       - local
 
@@ -42,7 +42,7 @@ services:
       - discovery.type=single-node
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ports:
-      - "9200:9200"
+      - "9100:9200"
     volumes:
       - esdata:/usr/share/elasticsearch/data
 
