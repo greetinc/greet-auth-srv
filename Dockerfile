@@ -6,8 +6,5 @@ WORKDIR /app
 
 ADD go.mod .
 ADD go.sum .
-RUN go build -o seeder .
-
-CMD ["./seeder"]
 
 RUN go mod download
