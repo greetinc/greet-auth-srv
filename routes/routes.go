@@ -10,6 +10,10 @@ import (
 	h_verify "github.com/greetinc/greet-auth-srv/handlers/auth/verify_account"
 	"github.com/greetinc/greet-middlewares/middlewares"
 
+	h_country "github.com/greetinc/greet-auth-srv/handlers/auth/country"
+	r_country "github.com/greetinc/greet-auth-srv/repositories/auth/country"
+	s_country "github.com/greetinc/greet-auth-srv/services/auth/country"
+
 	r_auth "github.com/greetinc/greet-auth-srv/repositories/auth"
 	r_verifyReset "github.com/greetinc/greet-auth-srv/repositories/auth/reset_password"
 	r_verify "github.com/greetinc/greet-auth-srv/repositories/auth/verify_account"
@@ -40,6 +44,10 @@ var (
 	resetR = r_verifyReset.NewResetRepository(DB)
 	resetS = s_verifyReset.NewResetService(resetR, JWT)
 	resetH = h_verifyReset.NewResetHandler(resetS)
+
+	countryR = r_country.NewCountryRepository(DB)
+	countryS = s_country.NewCountryService(countryR, JWT)
+	countryH = h_country.NewCountryHandler(countryS)
 )
 
 func New() *echo.Echo {
@@ -69,6 +77,9 @@ func New() *echo.Echo {
 		auth.POST("/register", authH.Signup)
 		auth.POST("/register-detail", authH.SignupDetail)
 		auth.POST("/login", authH.Signin)
+
+		auth.GET("", countryH.GetAll)
+		auth.GET("/:country", countryH.GetById)
 	}
 
 	return e
